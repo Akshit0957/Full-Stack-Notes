@@ -1,0 +1,34 @@
+<!-- ✅ Example 4: setInterval ⏰ (Repeating Every Second) -->
+ <!DOCTYPE html>
+<html>
+<body>
+<h2>Asynchronous Example 4: setInterval</h2>
+<p id="demo"></p>
+
+<script>
+function showTime() {
+  let d = new Date();
+  document.getElementById("demo").innerHTML =
+    d.getHours() + ":" +
+    d.getMinutes() + ":" +
+    d.getSeconds();
+}
+
+// Run every 1 second
+setInterval(showTime, 1000);
+</script>
+</body>
+</html>
+
+<!-- 👉 What happens:
+
+Every 1000ms (1 second), showTime runs again.
+
+Result: A live digital clock ⏰.
+
+💡 Real-life: Like a school bell ringing every 1 hour ⏰🔔. -->
+
+<!-- ✅ Callback Alternatives (Promises & async/await)
+
+👉 Callbacks are great but can get messy when we need many steps (called “callback hell”).
+That’s why modern JavaScript uses Promises and async/await -->

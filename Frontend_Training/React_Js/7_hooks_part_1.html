@@ -1,0 +1,416 @@
+⭐ 1. What is a Hook?
+A Hook is a special function in React that lets you:
+
+👉 use state
+👉 use lifecycle
+👉 use features
+👉 inside functional components
+
+Think of Hooks like special powers given to your normal component:
+
+useState → gives memory
+
+useEffect → gives brain to react to changes
+
+⭐ 2. Hook Rules
+🟦 Rule 1: Only call hooks at the TOP LEVEL
+
+❌ Not inside loops
+❌ Not inside if conditions
+❌ Not inside functions
+
+✔ Only inside the main body of component
+
+🟩 Rule 2: Only call hooks from React functions
+
+✔ You can call Hooks inside:
+
+Functional Component
+
+Custom Hook
+
+❌ You cannot call Hooks in:
+
+Normal JS functions
+
+Class Components
+
+⭐ 3. useState Hook 
+
+useState allows your component to remember data and update the UI whenever the data changes.
+
+⭐ Where do we use useState in real life?
+
+✔ Input forms
+✔ Cart count in shopping apps
+✔ Like button count
+✔ Toggle dark/light theme
+✔ Login/logout flag
+✔ Dropdown open/close
+
+⭐ 4. useEffect Hook
+
+useEffect lets your component perform side effects like:
+
+Fetching data
+
+Calling APIs
+
+Running timers
+
+Adding event listeners
+
+⭐ Real-Life Uses of useEffect
+
+✔ Fetching API data when page loads
+✔ Start timers
+✔ Auto-saving form data
+✔ Listen to keyboard or mouse events
+✔ Cleanup tasks when component is removed
+
+⭐ 5. useRef Hook
+
+useRef stores a value that:
+
+👉 DOES NOT cause re-render
+👉 Remains the same between renders
+👉 Can store DOM references
+
+🧠 Real-Life Example
+
+It’s like a sticky note on your computer:
+
+You can write something
+
+It never gets erased
+
+Your computer doesn’t restart because of it
+
+useRef = permanent memory that doesn’t disturb React.
+
+⭐ useRef Real-Life Uses
+
+✔ Focusing on input automatically
+✔ Tracking previous values
+✔ Storing timers
+✔ Working with animations
+✔ Handling video/audio controls
+
+⭐ 6. useCallback Hook
+🎯 Simple Definition
+
+useCallback is used to save a function so that React does NOT recreate it again on every render.
+
+👉 Helps with performance optimization
+👉 Prevents unnecessary rerenders
+
+⭐ When you Should Use useCallback?
+
+✔ When passing a function to child components
+✔ When you want to avoid unnecessary re-renders
+✔ When using React.memo
+✔ When function is heavy
+
+⭐ 7. useMemo Hook
+🎯 Simple Definition
+
+useMemo is used to save the result of a calculation so React does not recalculate it unnecessarily.
+
+It returns a value, not a function.
+
+⭐ When you Should Use useMemo?
+
+✔ For heavy calculations
+✔ For filtering lists
+✔ For sorting data
+✔ When performance matters
+
+⭐ 8. useEffectEvent (React 19)
+
+This is a new hook in React 19.
+
+🎯 Simple Meaning
+
+useEffectEvent lets you create event functions inside useEffect WITHOUT capturing stale values.
+
+It solves the stale closure problem.
+
+⭐ What Problem Does it Solve?
+Without useEffect
+
+The timer remembers old count forever.
+
+With useEffectEvent
+
+Timer always gets latest count
+without restarting the entire effect.
+
+⭐ When to Use useEffectEvent?
+
+✔ Timers
+✔ Event listeners
+✔ Subscriptions
+✔ API polling
+✔ WebSocket messages
+
+⭐ 9.useActionState (React 19)
+🎯 Simple Meaning
+
+useActionState helps you manage the state of an async action like:
+
+form submission
+
+login
+
+signup
+
+save button
+
+uploading a file
+
+sending data to server
+
+It automatically handles:
+
+✔ pending state (loading)
+✔ result state (success message)
+✔ error state
+✔ updating UI during and after the action
+
+🚨 WHY Was useActionState Introduced?
+
+Before React 19, we used to manage form actions like this:
+
+❌ Problem 1: Too many states
+const [loading, setLoading] = useState(false);
+const [result, setResult] = useState("");
+const [error, setError] = useState("");
+
+
+This makes code long, messy, repetitive.
+
+❌ Problem 2: Buttons had to be manually disabled
+<button disabled={loading}>Submit</button>
+
+❌ Problem 3: Forms need manual preventDefault()
+form.onSubmit = (e) => {
+  e.preventDefault();
+  ...
+};
+
+❌ Problem 4: You had to handle async yourself
+try {
+  setLoading(true);
+  const res = await apiCall();
+  setResult(res);
+} catch (err) {
+  setError(err);
+} finally {
+  setLoading(false);
+}
+
+
+This is WAY TOO MUCH BOILERPLATE for a simple form.
+
+⭐ React 19 Solution → useActionState
+
+With one hook:
+
+✔ Loading state → done
+✔ Result state → done
+✔ Error state → done
+✔ Form handling → automatic
+✔ Cleaner & shorter code
+
+React introduced this hook to make forms extremely simple.
+
+🧠 REAL-LIFE EXAMPLE (Super Easy)
+
+Imagine clicking “Login” on a website:
+
+1️⃣ While logging in:
+
+Button should disable
+
+Show “Logging In…”
+
+Prevent double-click
+
+2️⃣ After success:
+
+Show: “Welcome, Manish!”
+
+3️⃣ After error:
+
+Show: “Incorrect password”
+
+Before React 19:
+
+❌ You had to manually manage this with 5–6 states.
+
+With useActionState:
+
+✔ ALL handled automatically
+
+Just write your async function — React handles the rest.
+
+---------------------------------------------------------
+⭐ 10. useDeferredValue
+---------------------------------------------------------
+⭐ Reference
+
+Lets you delay updating a value to keep the UI smooth.
+
+🎯 Usage
+
+Use when:
+
+✔ You have a slow search filter
+✔ UI should not freeze while typing
+✔ Some values must update later
+✔ Prioritize user input over expensive rendering
+
+🔧 Parameters
+
+useDeferredValue(value)
+
+🎁 Returns
+
+A delayed version of the value.
+
+---------------------------------------------------------
+⭐ 11. useId
+---------------------------------------------------------
+⭐ Reference
+
+Generates unique IDs for accessibility + forms.
+
+🎯 Usage
+
+Use when:
+
+Connecting labels to inputs
+
+Generating unique keys
+
+Rendering lists
+
+Avoiding duplicate IDs
+
+🔧 Parameters
+
+None
+
+🎁 Returns
+
+A unique ID string like: "react-123:0"
+
+⭐ Summary
+
+✔ Prevents duplicate IDs
+✔ Perfect for forms, accessibility
+
+
+
+---------------------------------------------------------
+⭐ 12. useOptimistic 
+---------------------------------------------------------
+⭐ Reference
+
+Helps UI update immediately before the server responds.
+
+This is called Optimistic UI.
+
+🎯 Usage
+
+Use when:
+
+Adding items to a list
+
+Liking a post
+
+Adding to cart
+
+Updating profile
+
+Upvoting/downvoting
+
+🔧 Parameters
+
+useOptimistic(initialValue, updateFn)
+
+🎁 Returns
+
+optimisticValue
+
+function to update optimistically
+
+---------------------------------------------------------
+⭐ 13. Custom Hooks (React)
+---------------------------------------------------------
+📘 REFERENCE – What is a Custom Hook?
+
+A Custom Hook is a normal JavaScript function that:
+
+✔ starts with the word use
+✔ uses React hooks inside it (useState, useEffect, etc.)
+✔ helps reuse logic across components
+✔ is NOT a component (it doesn’t return JSX)
+
+Simple definition for students:
+
+A custom hook is a reusable logic box.
+
+🎯 USAGE – Why & When to Use Custom Hooks
+
+Use a custom hook when:
+
+✔ Same logic is used in multiple components
+✔ Code becomes repetitive
+✔ Components become too large
+✔ You want clean & readable code
+
+Common real uses:
+
+Fetching data from API
+
+Handling forms
+
+Timers
+
+Authentication logic
+
+Window size tracking
+
+LocalStorage handling
+
+🔧 PARAMETERS – What Can a Custom Hook Take?
+
+A custom hook can take any parameters, just like a normal function:
+
+function useSomething(param1, param2) { 
+  // Hook logic here
+}
+
+Examples:
+
+URL
+
+Initial value
+
+Delay time
+
+Boolean flag
+
+Callback function
+
+🎁 RETURNS – What Does a Custom Hook Return?
+
+A custom hook can return:
+
+✔ A value
+✔ An array
+✔ An object
+✔ Functions
+
+Just like built-in hooks.

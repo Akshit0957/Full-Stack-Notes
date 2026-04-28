@@ -1,0 +1,46 @@
+<!-- 8. Sorting Object Arrays
+
+👉 Sort objects by property (like year or name).
+📌 Real Life Example: Sorting cars by year or brand.
+
+Code: -->
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Sort Objects Example</h2>
+<p id="demo"></p>
+
+<script>
+const cars = [
+  {type:"Volvo", year:2016},
+  {type:"BMW", year:2010},
+  {type:"Saab", year:2001}
+];
+
+// Sort by Year
+cars.sort((a, b) => a.year - b.year);
+
+document.getElementById("demo").innerHTML =
+"Cars Sorted by Year: " + cars.map(c => c.type + " " + c.year).join(", ");
+console.log(typeof(cars))
+</script>
+</body>
+</html>
+
+<!-- ✅ Summary in Real Life Terms
+
+sort() → Sort names in attendance register (changes original).
+
+reverse() → Show list in reverse order.
+
+toSorted() → Sort shopping list but keep original safe.
+
+toReversed() → Reverse order of songs but don’t touch original.
+
+sort(compare) → Sort marks properly (numbers).
+
+Math.min & Math.max → Find lowest & highest score.
+
+Random Sort → Shuffle exam questions.
+
+Sort Objects → Sort products by price or brand. -->

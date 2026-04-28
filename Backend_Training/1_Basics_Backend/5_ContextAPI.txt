@@ -1,0 +1,118 @@
+1. Why Context API exists (the problem)
+✅ Props Drilling problem
+
+Sometimes data is needed deep inside the component tree:
+
+2. Context API is a way to store shared data in one place so any component can access it directly without props drilling.
+
+Real-life analogy
+
+🏫 Notice board
+
+Teacher puts a notice on the board once
+
+Any student can read it anytime
+
+Teacher doesn’t go class-to-class repeating it
+
+Context = Notice board
+Components = Students reading the notice
+
+ Context API vs Props
+
+| Feature                 | Props          | Context      |
+| ----------------------- | -------------- | ------------ |
+| Data flow               | Parent → Child | Global       |
+| Intermediate components | Required       | Not required |
+| Use case                | Small apps     | Medium apps  |
+| Complexity              | Simple         | Moderate     |
+
+3. Context API vs Redux (High-Level)
+
+| Feature        | Context API       | Redux      |
+| -------------- | ----------------- | ---------- |
+| Built-in       | ✅ Yes             | ❌ No       |
+| Setup          | Simple            | Complex    |
+| Async handling | Manual            | Excellent  |
+| Debug tools    | Limited           | Powerful   |
+| Best for       | Small–medium apps | Large apps |
+
+4. Context API has 3 main parts
+✅ A) createContext()
+
+Creates a “box” to store shared data.
+
+✅ B) <Provider value={...}>
+
+Puts data inside the box and makes it available.
+
+✅ C) useContext(ContextName)
+
+Any component can “read” the data from the box.
+
+5. When NOT to Use Context API
+
+❌ For frequently changing data (like animations)
+❌ For very large-scale apps
+❌ When only 1–2 components need the data
+
+6. Real-World Use Cases of Context API
+
+✔ Authentication (user login)
+✔ Theme (dark / light mode)
+✔ Language selection
+✔ Cart data
+✔ User profile
+
+7. 🧠 What JWT is (easy)
+
+JWT is a signed token string that proves the user is logged in.
+
+It’s like a movie ticket:
+
+Ticket is issued after payment (login)
+
+Ticket is shown at entry (API calls)
+
+Ticket proves you’re allowed in (authorization)
+
+8. 🔑 Authentication vs Authorization (students must know)
+
+Authentication = “Who are you?” (login)
+
+Authorization = “What are you allowed to access?” (protected routes)
+
+JWT is mainly used for authorization.
+
+9. ✅ What problem JWT solves
+
+Without JWT:
+
+Server must remember session for every user (session store)
+With JWT:
+
+Client sends token each time
+
+Server verifies token signature
+
+No need to store sessions (commonly)
+
+              (1) LOGIN
+Frontend  ------------------>  Backend
+(username/password)            validates user
+                               |
+                               | (2) returns JWT token
+                               v
+Frontend  <------------------  Backend
+      stores token (localStorage / memory)
+
+              (3) PROTECTED API CALL
+Frontend  ------------------>  Backend
+GET /api/profile
+Authorization: Bearer TOKEN
+                               |
+                               | (4) verify token
+                               | if valid -> return user data
+                               v
+Frontend  <------------------  Backend
+     shows profile/dashboard

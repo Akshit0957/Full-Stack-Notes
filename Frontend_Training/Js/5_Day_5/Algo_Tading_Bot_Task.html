@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        📝 Problem Statement: Build a Simple Algo Trading Bot in JavaScript
+
+-> Background
+
+In algorithmic trading, bots automatically make decisions to buy, sell, or hold stocks based on predefined rules. In this problem, you will simulate a very simple trading bot using JavaScript fundamentals.
+
+-> Task
+
+You are required to build a basic algo trading bot simulation that:
+
+Tracks balance, stock price, and holdings using variables.
+
+Uses operators (arithmetic and comparison) to calculate and compare values.
+
+Implements functions to update prices, decide actions, and execute trades.
+
+-> Requirements
+
+-> Initial Setup:
+
+Start with a balance of 1000.
+
+Stock price starts at 100.
+
+No stocks are held initially (holdings = 0).
+
+-> Update Stock Price:
+
+Write a function updatePrice() that randomly generates a stock price between 80 and 120.
+
+-> Decide Action:
+
+Write a function decideAction(price) that follows these rules:
+
+If stock price < 90 → Action = BUY (if balance allows).
+
+If stock price > 110 → Action = SELL (if holdings > 0).
+
+Otherwise → Action = HOLD.
+
+-> Execute Trade:
+
+Write a function trade(action) that:
+
+BUY: Deduct the stock price from balance and increase holdings by 1.
+
+SELL: Add the stock price to balance and decrease holdings by 1.
+
+HOLD: Do nothing.
+
+-> Simulation:
+
+Run the bot for 10 rounds.
+
+In each round:
+
+Update the stock price.
+
+Decide action.
+
+Execute trade.
+
+Print the stock price, action taken, current balance, and holdings.
+
+
+-> Output :- 
+
+Round 1: Stock price = 85 → Action = BUY → Balance = 915, Holdings = 1
+Round 2: Stock price = 112 → Action = SELL → Balance = 1027, Holdings = 0
+Round 3: Stock price = 95 → Action = HOLD → Balance = 1027, Holdings = 0
+
+
+    </p>
+</body>
+</html>
+

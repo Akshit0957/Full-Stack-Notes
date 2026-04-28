@@ -1,0 +1,117 @@
+<!-- 1. What is async?
+
+If you put async before a function → it always gives you a Promise.
+
+Promise = "I’ll give you something in the future."
+
+👉 Analogy:
+Imagine your mom says:
+
+"I’ll cook food 🍲 for you."
+
+Even if food is ready instantly, she still promises it.
+That’s what async does. -->
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      font-family: "Georgia", serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    /* Shayari Styling */
+    #demo {
+      max-width: 700px;
+      padding: 25px 35px;
+      text-align: center;
+      font-size: 1.6rem;
+      line-height: 1.8;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(6px);
+      animation: fadeIn 2s ease-in-out;
+      z-index: 2;
+      position: relative;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Moon Animation */
+    .moon {
+      position: absolute;
+      top: 50px;
+      right: 100px;
+      width: 80px;
+      height: 80px;
+      background: radial-gradient(circle at 30% 30%, #fff, #ddd);
+      border-radius: 50%;
+      box-shadow: 0 0 20px #fff, 0 0 40px #fff, 0 0 60px #fff;
+      animation: floatMoon 6s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatMoon {
+      from { transform: translateY(0px); }
+      to { transform: translateY(25px); }
+    }
+
+    /* Twinkling Stars */
+    .stars {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle 2s infinite alternate;
+    }
+
+    @keyframes twinkle {
+      from { opacity: 0.2; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <h2 style="position: absolute; top: 20px; left: 20px; color: #fdd835;">Async Example :- Shayari By Ghanshu-Ghayal !!! 🌌</h2>
+  <div class="moon"></div>
+  <p id="demo"></p>
+
+  <script>
+    async function sayHello() {
+      return "🌙 Utra tha chand hamare bhi aangan mein! ✨ lekin sitaro ko gawara nhi tha... 💫<br><br>Hum to sitaroon ⭐ se bhi kar lete Bagawaat ⚔️<br>Lekin kya fayda chand he hamara nhi tha 😔💔";
+     
+    }
+ 
+console.log(sayHello()) //to check promise state. 
+    sayHello().then(function(value) {
+      document.getElementById("demo").innerHTML = value;
+    });
+
+    // Create random stars
+    for (let i = 0; i < 50; i++) {
+      let star = document.createElement("div");
+      star.className = "stars";
+      star.style.top = Math.random() * window.innerHeight + "px";
+      star.style.left = Math.random() * window.innerWidth + "px";
+      star.style.animationDuration = (Math.random() * 3 + 2) + "s";
+      document.body.appendChild(star);
+    }
+  </script>
+  
+</body>
+
+</html>
+
+
+

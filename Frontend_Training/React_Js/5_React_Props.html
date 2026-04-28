@@ -1,0 +1,46 @@
+✅ 1. What are Props in React?
+
+Props (short for "properties") are a way to pass data from a parent component to a child component in React. They are read-only and help make components reusable by allowing them to accept different inputs.
+
+🧠 Technical Definition
+
+Props are used to:
+
+Pass data
+
+Pass functions
+
+Customize child components
+
+They are read-only (child cannot modify them).
+
+✅ 2. Props Destructuring
+
+Destructuring is a JavaScript feature that allows you to extract values from objects or arrays and assign them to variables in a more concise way.
+
+Without destructuring:
+props.name
+props.age
+props.city
+
+With destructuring:
+const { name, age, city } = props;
+
+📌 Why use it?
+
+✔ Cleaner code
+✔ Easier to read
+✔ Less typing
+
+✅ 3. Props.children in React
+
+props.children allows you to pass nested elements from parent to child.
+
+📌 Simple Meaning:
+
+"Whatever you put between opening and closing tags."
+
+<Note >
+  <p>This is inside the Note component.</p>
+</Note>
+Everything inside becomes props.children.

@@ -1,0 +1,205 @@
+1️⃣ Reference (Meaning)
+
+Backend is treated like a machine that:
+
+Takes a request
+
+Returns data
+
+We don’t care (yet) how it works inside
+
+Frontend only knows:
+
+API URL
+
+Request type
+
+Data returned
+
+🔁 FRONTEND–BACKEND FLOW
+
+React App (Frontend)
+      |
+      |  HTTP Request(Express.js)
+      ↓
+Backend Server (Black Box)
+      |
+      |  JSON Response
+      ↓
+React Updates UI
+
+
+2️⃣ require()
+const express = require("express");
+
+What is require?
+
+require is used to import external packages in Node.js.
+
+Why we need it:
+
+Express is not built-in
+
+We install it using npm
+
+Then import it using require
+
+Industry note:
+
+CommonJS syntax (Node.js)
+
+Frontend uses import, backend often uses require
+
+3️⃣ Express.js
+const express = require("express");
+
+What is Express?
+
+Express is a web framework for Node.js used to build APIs and servers easily.
+
+What Express gives us:
+
+Routing (app.get)
+
+Server creation
+
+Request & response handling
+
+Middleware support
+
+4️⃣ app (Express Application Object)
+const app = express();
+
+What is app?
+
+app is the server instance created by Express.
+
+What we do with app:
+
+Define routes
+
+Use middleware
+
+Start the server
+
+5️⃣ Middleware
+app.use(cors(...));
+
+What is middleware?
+
+Middleware is a function that runs before the request reaches the route.
+
+Why middleware exists:
+
+Security
+
+Logging
+
+Authentication
+
+CORS handling
+
+Parsing data
+
+6️⃣ CORS (Cross-Origin Resource Sharing)
+const cors = require("cors");
+
+What is CORS?
+
+CORS allows a backend to tell the browser:
+“This frontend is allowed to access me.”
+
+7️⃣ app.use()
+app.use(cors(...));
+
+What does app.use() do?
+
+Registers middleware globally for all requests.
+
+In simple words:
+
+Every request passes through this first
+
+Then goes to the route
+
+8️⃣ HTTP Method – GET
+app.get("/api/message", ...)
+
+What is GET?
+
+GET is an HTTP method used to fetch data from the server.
+
+9️⃣ Route / API Endpoint
+"/api/message"
+
+What is an API endpoint?
+
+A URL where frontend can send a request to get or send data.
+
+Full endpoint:
+http://localhost:5000/api/message
+
+🔟 req (Request Object)
+(req, res) => { ... }
+
+What is req?
+
+Contains all information sent from frontend to backend.
+
+Examples:
+
+URL
+
+Headers
+
+Body
+
+Params
+
+Query
+
+1️⃣1️⃣ res (Response Object)
+res.json({...})
+
+What is res?
+
+Used by backend to send response back to frontend.
+
+Common methods:
+
+res.json() → send JSON
+
+res.send() → send text
+
+res.status() → set status code
+
+1️⃣2️⃣ res.json()
+res.json({
+  message: "Hello from Backend!",
+  time: ...
+});
+
+What does res.json() do?
+
+Converts JavaScript object into JSON and sends it to frontend.
+
+Why JSON?
+
+Lightweight
+
+Language-independent
+
+Industry standard
+
+1️⃣4️⃣ app.listen()
+app.listen(5000, () => { ... });
+
+What does this do?
+
+Starts the backend server and listens for requests.
+
+Port 5000:
+
+Logical entry gate
+
+Must be open to accept requests

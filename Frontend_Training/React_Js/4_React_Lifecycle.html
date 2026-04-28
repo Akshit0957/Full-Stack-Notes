@@ -1,0 +1,80 @@
+<!-- ✅ React Functional Component Lifecycle :- 
+
+🔵 1. Mounting (Component is Born)
+
+This happens when the component is shown on the screen for the first time.
+
+👉 Real-life Example:
+When a person enters a room for the first time — they settle, introduce themselves, turn on lights, etc.
+
+👉 In React:
+When your component loads for the first time, you can:
+
+Fetch data from API
+
+Start a timer
+
+Initialize state
+
+👉 In functional components we use:
+
+useEffect(() => {
+  console.log("Component Mounted");
+}, []);
+
+The empty array [] means this effect runs only once when the component mounts.
+
+🟡 2. Updating (Component Changes/Updates)
+
+This happens whenever state or props change.
+
+👉 Real-life Example:
+A person inside a room moves the chair, reads a book, talks to someone — the environment updates.
+
+👉 In React:
+Your component updates when:
+
+A button changes a value
+
+API updates the screen
+
+User types into a textbox
+
+👉 We use:
+useEffect(() => {
+  console.log("Component Updated");
+});
+
+This runs after every re-render.
+
+Or to run only when a specific state changes:
+
+useEffect(() => {
+  console.log("count state updated");
+}, [count]);
+This runs only when 'count' changes.
+
+🔴 3. Unmounting (Component is Removed)
+
+This happens when the component disappears from screen.
+
+👉 Real-life Example:
+When a person leaves the room — they turn off lights, close doors, clean up unwanted items.
+
+👉 In React:
+You should clean things up like:
+
+Removing event listeners
+
+Clearing timers
+
+Closing WebSocket connections
+
+👉 We use cleanup function:
+
+useEffect(() => {
+  return () => {
+    console.log("Component Unmounted");
+  };
+}, []);
+This runs when the component is about to unmount. -->

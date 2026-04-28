@@ -1,0 +1,39 @@
+Why Async State is Special
+❌ In Phase 1
+
+Everything was instant:
+
+dispatch(increment())
+
+The state was updated immediately, and the UI re-rendered right away.
+
+❌ But API calls are different
+
+When calling backend:
+
+It takes time
+
+It may fail
+
+It may succeed
+
+So state must handle:
+Idle
+Loading
+Success
+Error
+This is where Async Thunks come in.
+
+What is it?
+
+A Redux Toolkit helper to handle async operations like API calls.
+
+It automatically:
+
+dispatches pending
+
+dispatches fulfilled
+
+dispatches rejected
+
+No manual boilerplate needed.

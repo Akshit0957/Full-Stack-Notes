@@ -1,0 +1,33 @@
+<!-- What is await?
+
+await = wait until the Promise is ready.
+
+You can only use it inside an async function.
+
+👉 Analogy:
+You ordered Pizza 🍕.
+You wait (await) until delivery comes.
+After that, you can eat. 😋 -->
+
+<!DOCTYPE html>
+<html>
+<body>
+  <h2>Await Example</h2>
+  <p id="demo"></p>
+
+  <script>
+    async function orderPizza() {
+      let pizza = new Promise(function(resolve) {
+        setTimeout(() => resolve("Pizza Delivered 🍕"), 3000);
+      });
+      console.log(pizza) // Promise { <pending> }
+
+      let result = await pizza; // Wait until pizza comes
+      document.getElementById("demo").innerHTML = result;
+      console.log(pizza) // Promise { 'Pizza Delivered 🍕'
+    }
+
+    orderPizza();
+  </script>
+</body>
+</html>

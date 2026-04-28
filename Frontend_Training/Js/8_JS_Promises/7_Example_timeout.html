@@ -1,0 +1,40 @@
+<!-- 🔹 Example 1: Waiting for Timeout (Pizza Order ⏳)
+Using Callback -->
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+setTimeout(function() { 
+  document.getElementById("demo").innerHTML = "Pizza Delivered 🍕"; 
+}, 3000);
+</script>
+</body>
+</html>
+
+<!-- 👉 Here, after 3 sec, callback runs. -->
+
+<!-- Using Promise -->
+ <!DOCTYPE html>
+<html>
+<body>
+<h2>Promise Example - setTimeout</h2>
+<p id="demo"></p>
+
+<script>
+let myPromise = new Promise(function(myResolve, myReject) {
+  setTimeout(function() { myResolve("Pizza Delivered 🍕"); }, 3000);
+});
+console.log(myPromise)
+myPromise.then(function(value) {
+  document.getElementById("demo").innerHTML = value;
+  console.log(myPromise)
+});
+</script>
+</body>
+</html>
+
+<!-- 👉 Here, Promise waits for 3 sec, then resolves. -->

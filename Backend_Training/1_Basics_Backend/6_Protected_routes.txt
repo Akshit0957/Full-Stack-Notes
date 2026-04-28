@@ -1,0 +1,45 @@
+1️⃣ Why do we need route safety?
+❌ Problem (Real-life issue)
+
+Even if:
+
+Backend is protected
+
+UI hides buttons
+
+A user can still manually type:
+
+/dashboard
+/profile
+/admin
+
+👉 Frontend routing must also block access.
+
+2️⃣ What is a Protected Route?
+
+A Protected Route is a route that only renders if the user is authenticated.
+
+Otherwise:
+
+Redirect to /login
+
+4️⃣ How Protected Routes work (Concept)
+
+Instead of this:
+
+<Route path="/dashboard" element={<Dashboard />} />
+
+We do this:
+
+<Route
+  path="/dashboard"
+  element={
+    <ProtectedRoute>
+      <Dashboard />
+    </ProtectedRoute>
+  }
+/>
+
+👉 ProtectedRoute checks auth
+👉 If allowed → show Dashboard
+👉 If not → redirect to Login

@@ -1,0 +1,24 @@
+<!--  Instant Promise
+
+👉 Think of it like your mom instantly giving you Maggie noodles 🍜 instead of making you wait. --><!DOCTYPE html>
+<html>
+<body>
+  <h2>Await with Instant Result</h2>
+  <p id="demo"></p>
+
+  <script>
+    async function instantFood() {
+      let maggie = new Promise(function(resolve) {
+        resolve("Maggie Ready 🍜");
+      });
+console.log(maggie) // Promise { <pending> }
+      let result = await maggie;
+      document.getElementById("demo").innerHTML = result;
+       console.log(maggie)
+    }
+   
+
+    instantFood();
+  </script>
+</body>
+</html>

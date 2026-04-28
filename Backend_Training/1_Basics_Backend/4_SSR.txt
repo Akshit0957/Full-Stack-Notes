@@ -1,0 +1,89 @@
+1️⃣ What is Server Side Rendering (SSR)?
+
+Server Side Rendering (SSR) means:
+The server generates the complete HTML page first, then sends it to the browser.
+
+👉 Rendering happens on the server, not in the browser.
+
+2️⃣ Real-Life Analogy
+
+🍕 Pizza Delivery Example
+
+CSR → You get raw ingredients and cook yourself
+
+SSR → You receive a fully cooked pizza
+
+SSR = Ready-to-use page
+
+3️⃣ How SSR Works (Step by Step)
+
+1. User requests a page
+2. Server fetches data
+3. Server builds HTML with data
+4. HTML is sent to browser
+5. Browser displays content instantly
+6. JavaScript attaches interactivity
+
+4️⃣ Key Difference from CSR
+
+| CSR                     | SSR                    |
+| ----------------------- | ---------------------- |
+| Browser builds UI       | Server builds UI       |
+| Empty HTML initially    | Full HTML initially    |
+| Data fetched in browser | Data fetched on server |
+| Poor SEO                | Excellent SEO          |
+
+5️⃣ Why SSR Exists (Problem it Solves)
+❌ Problems with CSR
+
+Blank page initially
+
+Poor SEO
+
+Slow first content load
+
+✅ SSR Fixes
+
+Faster first paint
+
+SEO friendly
+
+Better performance on slow devices
+
+6️⃣ Where SSR is Used (Real Industry)
+
+✔ Blogs
+✔ News websites
+✔ E-commerce product pages
+✔ Marketing websites
+✔ Public landing pages
+
+Examples:
+
+Amazon product pages
+
+Medium articles
+
+News websites
+
+9️⃣ What HTML Looks Like in SSR
+
+Unlike CSR, the HTML already contains content:
+
+<h2>Server Side Rendering Example</h2>
+<p>Name: Manish</p>
+<p>Role: Frontend Developer</p>
+
+✅ Browser displays content instantly
+✅ Search engines can read it
+
+🔟 SSR Characteristics
+
+| Feature       | SSR             |
+| ------------- | --------------- |
+| Rendering     | Server          |
+| Initial HTML  | Fully populated |
+| SEO           | Excellent       |
+| First load    | Fast            |
+| Server load   | Higher          |
+| Interactivity | After hydration |

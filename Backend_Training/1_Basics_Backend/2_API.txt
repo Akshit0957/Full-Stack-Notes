@@ -1,0 +1,52 @@
+🔹 1️⃣ WHAT IS AN API?
+
+API (Application Programming Interface) is a bridge that allows one software to talk to another.
+
+🔁 Web API Flow
+
+React App
+   ↓
+API Request (URL + Method + Data)
+   ↓
+Backend Server
+   ↓
+API Response (JSON)
+   ↓
+React Updates UI
+
+🧾 Example of an API
+
+GET http://localhost:5000/api/message
+
+This API:
+
+Accepts a request
+
+Returns data
+
+🔹 2️⃣ HTTP METHODS (GET vs POST)
+
+HTTP methods define what action you want to perform on data.
+
+| Method | Purpose     |
+| ------ | ----------- |
+| GET    | Fetch data  |
+| POST   | Send data   |
+| PUT    | Update data |
+| DELETE | Remove data |
+
+1️⃣ GET — Fetch Data (READ)
+
+GET is used to retrieve data from the server.
+
+2️⃣ POST — Send Data (CREATE)
+
+POST is used to send data from frontend to backend.
+
+3️⃣ PUT — Update Data (UPDATE)
+
+PUT is used to update existing data.
+
+4️⃣ DELETE — Remove Data (DELETE)
+
+DELETE is used to remove data from the server.

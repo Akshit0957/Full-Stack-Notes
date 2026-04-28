@@ -1,0 +1,96 @@
+<!-- 🎯 Why Data Types Matter in JSON
+
+When we store or send data in JSON, we must follow strict rules about what kind of data types are allowed — otherwise, computers won’t understand it.
+✅ Valid JSON Data Types
+
+Let’s understand each with a real-world example 👇
+
+1️⃣ String
+
+Must always be inside double quotes " "
+Used for text or words
+
+{"name": "John"}
+{name: "John"}  // ❌ Invalid JSON - keys must be in double quotes
+
+2️⃣ Number
+Can be an integer (10) or a decimal (10.5)
+No quotes around numbers
+
+{"age": 30}
+
+3️⃣ Object
+
+A collection of key-value pairs
+Enclosed in curly braces { }
+Keys must be strings in double quotes
+{"address": {"city": "New York", "zip": "10001"}}
+
+4️⃣ Array
+
+Arrays store multiple values inside square brackets [ ]
+Think of it like a shopping list 🛒
+
+{
+  "employees": ["John", "Anna", "Peter"]
+}
+
+5️⃣ Boolean
+True or false values
+{"isActive": true}
+
+6️⃣ Null
+Represents an empty value or no value
+{"middleName": null}
+
+❌ Invalid Data Types in JSON
+
+-> JSON cannot contain:
+
+1.Functions
+2.Dates (must be written as strings)
+3.undefined
+
+Example of invalid JSON 👇
+
+{
+  "myFunction": function() {},   // ❌ Not allowed
+  "birthday": new Date(),        // ❌ Not allowed
+  "nickname": undefined          // ❌ Not allowed
+} -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🧠 JSON Data Types Example</title>
+</head>
+<body>
+  <h2>📦 JSON Data Types - Example</h2>
+  <button onclick="showData()">Show JSON Data</button>
+  <pre id="output"></pre>
+
+  <script>
+    function showData() {
+      // Step 1: Create a JSON Object
+      const person = {
+        name: "Alice",             // String
+        age: 25,                   // Number
+        city: "London",            // String
+        skills: ["HTML", "CSS", "JS"], // Array
+        isStudent: false,          // Boolean
+        middleName: null,          // Null
+        address: {                 // Object
+          street: "Baker Street",
+          houseNo: 221
+        }
+      };
+console.log(typeof person);
+      // Step 2: Display as JSON text
+      const jsonText = JSON.stringify(person, null, 2); // formatted text
+      document.getElementById("output").textContent = jsonText;
+      console.log(typeof jsonText);
+    }
+  </script>
+</body>
+</html>
